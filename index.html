@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C++ Programming Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f8f9fb; color: #222; line-height: 1.6; }
+    header { background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); color: white; padding: 2rem; text-align: center; }
+    header h1 { font-size: 2.5rem; }
+    nav { display: flex; justify-content: center; background: #1e2a34; padding: 1rem; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    nav a:hover { color: #00d1b2; }
+    .container { max-width: 1200px; margin: 2rem auto; padding: 1rem; }
+    section { margin-bottom: 3rem; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    section h2 { font-size: 1.8rem; margin-bottom: 1rem; color: #203a43; }
+    code { background: #eee; padding: 0.3rem 0.6rem; border-radius: 5px; font-family: monospace; }
+    pre { background: #1e1e1e; color: #dcdcdc; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
+    .highlight { color: #4ec9b0; }
+    footer { text-align: center; padding: 2rem; background: #203a43; color: white; margin-top: 2rem; }
+    .toc { background: #f1f1f1; padding: 1rem; border-left: 4px solid #203a43; margin-bottom: 2rem; }
+    .toc a { display: block; margin: 0.3rem 0; color: #203a43; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mastering C++ Programming</h1>
+    <p>A Modern, In-Depth Exploration of One of the Most Powerful Languages Ever Created</p>
+  </header>
+
+  <nav>
+    <a href="#intro">Introduction</a>
+    <a href="#syntax">Syntax</a>
+    <a href="#oop">OOP</a>
+    <a href="#stl">STL</a>
+    <a href="#advanced">Advanced Topics</a>
+    <a href="#conclusion">Conclusion</a>
+  </nav>
+
+  <div class="container">
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <a href="#intro">1. Introduction to C++</a>
+      <a href="#history">1.1 History</a>
+      <a href="#setup">1.2 Setting up</a>
+      <a href="#syntax">2. Syntax & Basics</a>
+      <a href="#oop">3. Object-Oriented Programming</a>
+      <a href="#stl">4. Standard Template Library (STL)</a>
+      <a href="#advanced">5. Advanced C++</a>
+      <a href="#conclusion">6. Conclusion</a>
+    </div>
+
+    <section id="intro">
+      <h2>1. Introduction to C++</h2>
+      <p>C++ is a general-purpose programming language created by <strong>Bjarne Stroustrup</strong> in 1985 as an extension of the C language. It introduces <em>object-oriented programming</em> while retaining C's low-level power, making it ideal for <strong>system-level development</strong>, <strong>game engines</strong>, <strong>finance systems</strong>, and more.</p>
+      <h3 id="history">1.1 History</h3>
+      <p>C++ evolved from C with Classes and was standardized by ISO in 1998. Since then, modern versions like <code>C++11</code>, <code>C++14</code>, <code>C++17</code>, and <code>C++20</code> introduced major improvements such as smart pointers, concurrency, ranges, and modules.</p>
+      <h3 id="setup">1.2 Setting up</h3>
+      <p>To run C++, install a compiler such as <code>g++</code> or <code>clang++</code>. For Windows, MinGW or MSVC can be used. For macOS/Linux, g++ is typically pre-installed.</p>
+    </section>
+
+    <section id="syntax">
+      <h2>2. Syntax & Basics</h2>
+      <p>The foundation of C++ programming includes variables, data types, control structures, and functions.</p>
+      <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, C++ World!" &lt;&lt; endl;
+    int x = 42;
+    if (x &gt; 10) {
+        cout &lt;&lt; "x is greater than 10" &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre>
+      <p>Key features include <strong>type safety</strong>, <strong>manual memory management</strong>, and <strong>compile-time efficiency</strong>.</p>
+    </section>
+
+    <section id="oop">
+      <h2>3. Object-Oriented Programming</h2>
+      <p>C++ introduced OOP to C, enabling encapsulation, inheritance, and polymorphism.</p>
+      <pre><code>class Animal {
+public:
+    virtual void speak() { cout &lt;&lt; "Generic animal sound" &lt;&lt; endl; }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override { cout &lt;&lt; "Woof!" &lt;&lt; endl; }
+};
+
+int main() {
+    Animal* a = new Dog();
+    a-&gt;speak(); // Woof!
+    delete a;
+    return 0;
+}</code></pre>
+      <p>This enables <strong>runtime polymorphism</strong> and supports large-scale applications.</p>
+    </section>
+
+    <section id="stl">
+      <h2>4. Standard Template Library (STL)</h2>
+      <p>The STL provides containers, algorithms, and iterators, allowing fast and efficient coding.</p>
+      <pre><code>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; nums = {5, 2, 9, 1};
+    sort(nums.begin(), nums.end());
+    for (int n : nums) cout &lt;&lt; n &lt;&lt; " ";
+    return 0;
+}</code></pre>
+      <p>Popular containers include <code>vector</code>, <code>map</code>, <code>set</code>, and <code>unordered_map</code>.</p>
+    </section>
+
+    <section id="advanced">
+      <h2>5. Advanced C++</h2>
+      <p>Modern C++ includes powerful features like:</p>
+      <ul>
+        <li><strong>Smart Pointers</strong> – automated memory management</li>
+        <li><strong>Lambda Expressions</strong> – inline anonymous functions</li>
+        <li><strong>Multithreading</strong> – parallel execution with <code>&lt;thread&gt;</code></li>
+        <li><strong>Move Semantics</strong> – efficient resource handling</li>
+        <li><strong>Templates & Metaprogramming</strong></li>
+      </ul>
+      <pre><code>#include &lt;memory&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    unique_ptr&lt;int&gt; p = make_unique&lt;int&gt;(42);
+    cout &lt;&lt; *p &lt;&lt; endl; // 42
+    return 0;
+}</code></pre>
+    </section>
+
+    <section id="conclusion">
+      <h2>6. Conclusion</h2>
+      <p>C++ remains one of the most <strong>resilient and high-performance</strong> programming languages in the world. It balances <strong>low-level control</strong> with <strong>high-level abstractions</strong>, making it the backbone of industries like gaming, finance, embedded systems, and operating systems.</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mastering C++ Programming | Designed for Modern Developers</p>
+  </footer>
+
+</body>
+</html>
